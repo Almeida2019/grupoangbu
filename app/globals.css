@@ -1,0 +1,241 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 240 85% 8%;
+    --foreground: 0 0% 100%;
+    --card: 240 85% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 85% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 240 85% 8%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 16 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 85% 15%;
+    --muted-foreground: 240 5% 84%;
+    --accent: 240 85% 15%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 85% 15%;
+    --input: 240 85% 15%;
+    --ring: 16 100% 50%;
+    --radius: 0.5rem;
+  }
+
+  .dark {
+    --background: 240 85% 8%;
+    --foreground: 0 0% 100%;
+    --card: 240 85% 10%;
+    --card-foreground: 0 0% 100%;
+    --popover: 240 85% 8%;
+    --popover-foreground: 0 0% 100%;
+    --primary: 240 85% 8%;
+    --primary-foreground: 0 0% 100%;
+    --secondary: 16 100% 50%;
+    --secondary-foreground: 0 0% 100%;
+    --muted: 240 85% 15%;
+    --muted-foreground: 240 5% 84%;
+    --accent: 240 85% 15%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 100%;
+    --border: 240 85% 15%;
+    --input: 240 85% 15%;
+    --ring: 16 100% 50%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    @apply font-bold;
+  }
+  h1 {
+    @apply text-4xl md:text-5xl lg:text-6xl;
+  }
+  h2 {
+    @apply text-3xl md:text-4xl;
+  }
+  h3 {
+    @apply text-2xl md:text-3xl;
+  }
+}
+
+/* Fluid background styles */
+.fluid-bg {
+  background-color: hsl(var(--primary));
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(135deg, rgba(5, 0, 56, 0.95) 0%, rgba(5, 0, 56, 0.8) 100%);
+}
+
+.fluid-bg::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 30%, rgba(255, 72, 0, 0.4) 0%, transparent 40%),
+    radial-gradient(circle at 80% 70%, rgba(255, 72, 0, 0.3) 0%, transparent 40%);
+  z-index: 0;
+}
+
+.fluid-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M0,192 C0,192 27,168 64,168 C101,168 128,192 128,192 C128,192 155,216 192,216 C229,216 256,192 256,192 C256,192 283,168 320,168 C357,168 384,192 384,192 L384,400 L0,400 Z' fill='%23FF4800' fill-opacity='0.1'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-position: 0 0;
+  opacity: 0.2;
+  z-index: 0;
+  animation: wave 15s linear infinite alternate;
+}
+
+.fluid-bg-muted {
+  background-color: hsl(var(--muted));
+  position: relative;
+  overflow: hidden;
+  background-image: linear-gradient(135deg, rgba(20, 20, 56, 0.95) 0%, rgba(20, 20, 56, 0.8) 100%);
+}
+
+.fluid-bg-muted::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 30% 20%, rgba(255, 72, 0, 0.2) 0%, transparent 40%),
+    radial-gradient(circle at 70% 80%, rgba(255, 72, 0, 0.15) 0%, transparent 40%);
+  z-index: 0;
+}
+
+.fluid-bg-muted::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 400 400' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M384,192 C384,192 357,216 320,216 C283,216 256,192 256,192 C256,192 229,168 192,168 C155,168 128,192 128,192 C128,192 101,216 64,216 C27,216 0,192 0,192 L0,0 L384,0 Z' fill='%23FF4800' fill-opacity='0.05'%3E%3C/path%3E%3C/svg%3E");
+  background-size: 100% 100%;
+  background-position: 0 0;
+  opacity: 0.1;
+  z-index: 0;
+  animation: wave-reverse 20s linear infinite alternate;
+}
+
+.card-fluid {
+  position: relative;
+  overflow: hidden;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(255, 72, 0, 0.1);
+}
+
+.card-fluid::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 72, 0, 0.1) 0%, transparent 50%);
+  z-index: 0;
+  transition: all 0.3s ease;
+}
+
+.card-fluid:hover::before {
+  background: linear-gradient(135deg, rgba(255, 72, 0, 0.2) 0%, transparent 60%);
+}
+
+.card-fluid > * {
+  position: relative;
+  z-index: 1;
+}
+
+@keyframes wave {
+  0% {
+    background-position: 0% 0%;
+  }
+  100% {
+    background-position: 100% 10%;
+  }
+}
+
+@keyframes wave-reverse {
+  0% {
+    background-position: 100% 0%;
+  }
+  100% {
+    background-position: 0% 10%;
+  }
+}
+
+.geometric-bg {
+  background-color: hsl(var(--primary));
+  background-image: linear-gradient(135deg, rgba(5, 0, 56, 0.95) 0%, rgba(5, 0, 56, 0.8) 100%),
+    linear-gradient(135deg, rgba(255, 72, 0, 0.15) 25%, transparent 25%),
+    linear-gradient(225deg, rgba(255, 72, 0, 0.15) 25%, transparent 25%),
+    linear-gradient(45deg, rgba(255, 72, 0, 0.15) 25%, transparent 25%),
+    linear-gradient(315deg, rgba(255, 72, 0, 0.15) 25%, transparent 25%);
+  background-position: 40px 0, 40px 0, 0 0, 0 0;
+  background-size: 80px 80px;
+  background-repeat: repeat;
+}
+
+/* Button hover effects */
+.btn-hover-effect {
+  transition: all 0.3s ease;
+}
+
+.btn-hover-effect:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(255, 72, 0, 0.3);
+}
+
+/* Tooltip styles */
+.tooltip {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltip .tooltip-text {
+  visibility: hidden;
+  width: 120px;
+  background-color: #050038;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 125%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltip:hover .tooltip-text {
+  visibility: visible;
+  opacity: 1;
+}

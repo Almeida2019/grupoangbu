@@ -9,6 +9,7 @@ import { Input } from "@/components/ui/input"
 import { Label } from "@/components/ui/label"
 import { Textarea } from "@/components/ui/textarea"
 import { MapPin, Phone, Mail, Send, CheckCircle } from "lucide-react"
+import "../../styles/contact-form.css"
 
 export default function Contacto() {
   const [formState, setFormState] = useState({
